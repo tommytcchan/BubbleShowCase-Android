@@ -11,7 +11,7 @@
     android:layout_marginRight="15dp"
     android:background="@drawable/rounded_layout"
     android:maxWidth="420dp"
-    android:padding="10dp">
+    android:padding="6dp">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -79,8 +79,11 @@
         android:id="@+id/imageViewShowCaseClose"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         android:padding="11dp"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:src="@drawable/ic_close"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

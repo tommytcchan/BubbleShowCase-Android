@@ -104,9 +104,14 @@ class BubbleMessageView : ConstraintLayout {
     builder.mSubtitleTextSize?.let {
       textViewSubtitle?.setTextSize(TypedValue.COMPLEX_UNIT_SP, builder.mSubtitleTextSize!!.toFloat())
     }
-    builder.mBackgroundColor?.let { mBackgroundColor = builder.mBackgroundColor!! }
+    builder.mBackgroundColor?.let {
+      mBackgroundColor = builder.mBackgroundColor!!
+      showCaseMessageViewLayout?.backgroundTintList = ColorStateList.valueOf(mBackgroundColor)
+    }
     arrowPositionList = builder.mArrowPosition
     targetViewScreenLocation = builder.mTargetViewScreenLocation
+
+
   }
 
   private fun setBubbleListener(builder: Builder) {
@@ -134,13 +139,13 @@ class BubbleMessageView : ConstraintLayout {
 
     prepareToDraw()
 
-    backgroundTintList = ColorStateList.valueOf(mBackgroundColor)
 
     for (arrowPosition in arrowPositionList) {
 
       drawArrow(canvas, arrowPosition, targetViewScreenLocation)
     }
   }
+
 
   private fun prepareToDraw() {
     paint = Paint(Paint.ANTI_ALIAS_FLAG)
