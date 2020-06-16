@@ -10,8 +10,7 @@
     android:layout_marginEnd="15dp"
     android:layout_marginRight="15dp"
     android:background="@drawable/rounded_layout"
-    android:maxWidth="420dp"
-    android:padding="6dp">
+    android:maxWidth="420dp">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -53,10 +52,10 @@
             android:id="@+id/textViewShowCaseTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
             android:breakStrategy="simple"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="visible"
             tools:text="Title" />
@@ -65,8 +64,7 @@
             android:id="@+id/textViewShowCaseText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="18dp"
+            android:layout_marginBottom="15dp"
             android:breakStrategy="simple"
             android:textSize="14sp"
             android:visibility="visible"

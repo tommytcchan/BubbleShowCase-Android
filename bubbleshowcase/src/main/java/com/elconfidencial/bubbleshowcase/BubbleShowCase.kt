@@ -63,7 +63,8 @@ class BubbleShowCase(builder: BubbleShowCaseBuilder) {
   private val mShowOnce: String? = builder.mShowOnce
   private val mDisableTargetClick: Boolean = builder.mDisableTargetClick
   private val mDisableCloseAction: Boolean = builder.mDisableCloseAction
-  private val mHighlightMode: BubbleShowCase.HighlightMode? = builder.mHighlightMode
+  private val mHighlightMode: HighlightMode? = builder.mHighlightMode
+  private val mFontId: Int? = builder.mFontId
   private val mArrowPositionList: MutableList<ArrowPosition> = builder.mArrowPositionList
   private val mTargetView: WeakReference<View>? = builder.mTargetView
   private val mBubbleShowCaseListener: BubbleShowCaseListener? = builder.mBubbleShowCaseListener
@@ -172,6 +173,7 @@ class BubbleShowCase(builder: BubbleShowCaseBuilder) {
         .title(mTitle)
         .subtitle(mSubtitle)
         .image(mImage)
+        .typeFace(mFontId)
         .closeActionImage(mCloseAction)
         .disableCloseAction(mDisableCloseAction)
         .listener(object : OnBubbleMessageViewListener {

@@ -2,20 +2,20 @@ package com.elconfidencial.bubbleshowcase
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.Path
-import android.graphics.RectF
+import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.FontRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import java.lang.ref.WeakReference
 import java.util.*
+
 
 /**
  * Created by jcampos on 05/09/2018.
@@ -107,6 +107,16 @@ class BubbleMessageView : ConstraintLayout {
     builder.mBackgroundColor?.let {
       mBackgroundColor = builder.mBackgroundColor!!
       showCaseMessageViewLayout?.backgroundTintList = ColorStateList.valueOf(mBackgroundColor)
+    }
+
+    builder.mFontId?.let {
+      try {
+        val typeface = ResourcesCompat.getFont(context, it)
+        textViewTitle?.typeface = typeface
+        textViewSubtitle?.typeface = typeface
+      } catch (e: Exception) {
+        // do nothing
+      }
     }
     arrowPositionList = builder.mArrowPosition
     targetViewScreenLocation = builder.mTargetViewScreenLocation
@@ -247,6 +257,7 @@ class BubbleMessageView : ConstraintLayout {
     var mSubtitle: String? = null
     var mCloseAction: Drawable? = null
     var mBackgroundColor: Int? = null
+    var mFontId: Int? = null
     var mTextColor: Int? = null
     var mTitleTextSize: Int? = null
     var mSubtitleTextSize: Int? = null
@@ -316,6 +327,11 @@ class BubbleMessageView : ConstraintLayout {
 
     fun listener(listener: OnBubbleMessageViewListener?): Builder {
       mListener = listener
+      return this
+    }
+
+    fun typeFace(@FontRes fontId: Int?): Builder {
+      mFontId = fontId
       return this
     }
 
